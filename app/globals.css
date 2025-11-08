@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html{
+    scroll-behavior: smooth;
+}
+
 :root {
   /* ----- COLORS ----- */
   --color-primary-text: #000000;
@@ -106,10 +110,17 @@ body {
   color: var(--color-filled-button-text);
 }
 
-::-webkit-scrollbar{
-  behavior: smooth;
-}
-
 ::selection{
   background: #4AEA45;
+}
+
+
+.splash-screen {
+  z-index: 9999;
+  background: linear-gradient(135deg, #059669 0%, #047857 50%, #065f46 100%);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  inset: 0;
 }

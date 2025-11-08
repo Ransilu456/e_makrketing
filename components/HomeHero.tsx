@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { ImageWithFallback } from "./error/ImageWithFallback";
 
 export default function HomeHero() {
   return (
@@ -74,14 +75,61 @@ export default function HomeHero() {
         transition={{ delay: 0.4, duration: 0.9 }}
         className="relative mt-12 md:mt-0 w-full md:w-[480px] h-[580px] flex items-center justify-center"
       >
-        <div className="absolute inset-0 bg-linear-to-tr from-[#4AEA45]/10 via-white/30 to-transparent backdrop-blur-xl border border-white/20 rounded-3xl shadow-lg"></div>
-        <Image
-          src="/hero-illustration.svg"
-          alt="Hero Illustration"
-          width={400}
-          height={400}
-          className="relative z-10 drop-shadow-xl"
-        />
+        {/* Right Image */}
+          <motion.div
+            className="relative hidden lg:block"
+            initial={{ opacity: 0, x: 100, rotate: 5 }}
+            animate={{ opacity: 1, x: 0, rotate: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            <motion.div
+              className="absolute -top-10 -left-10 w-80 h-80 bg-emerald-400/30 rounded-full blur-3xl"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{ duration: 4, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute -bottom-10 -right-10 w-80 h-80 bg-white/20 rounded-full blur-3xl"
+              animate={{
+                scale: [1.2, 1, 1.2],
+                opacity: [0.2, 0.4, 0.2],
+              }}
+              transition={{ duration: 4, repeat: Infinity }}
+            />
+            <motion.div
+              className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20"
+              whileHover={{ scale: 1.02, rotate: -1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ImageWithFallback
+                src="https://images.unsplash.com/photo-1542744094-f77e9f7a10b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nJTIwd29ya3NwYWNlfGVufDF8fHx8MTc2MjUxNTgxNHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                alt="Digital Marketing Workspace"
+                className="w-full h-auto object-cover"
+              />
+            </motion.div>
+
+            {/* Floating Elements */}
+            <motion.div
+              className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4"
+              animate={{
+                y: [0, -10, 0],
+              }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="text-primary text-sm">🚀 Innovation</div>
+            </motion.div>
+            <motion.div
+              className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4"
+              animate={{
+                y: [0, 10, 0],
+              }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            >
+              <div className="text-primary text-sm">✨ Excellence</div>
+            </motion.div>
+          </motion.div>
       </motion.div>
 
       {/* --- BACKGROUND GLOW EFFECTS --- */}
