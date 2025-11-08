@@ -41,11 +41,12 @@ export default function Services() {
                 At E Marketing Paradice, we bring ideas to life through design, technology, and digital strategy.Whether you’re launching a new brand or scaling your online presence, our team delivers creative, customized solutions that make your business stand out.
             </motion.p>
 
-            <div className="flex flex-row gap-5">
-                <ServiceCard />
-                <ServiceCard />
-                <ServiceCard />
-            </div>
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+  <ServiceCard />
+  <ServiceCard />
+  <ServiceCard />
+</div>
+
 
             <motion.p
                 initial={{ opacity: 0, y: 20 }}

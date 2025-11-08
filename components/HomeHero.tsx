@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function HomeHero() {
   return (
-    <section className="relative flex flex-col md:flex-row items-center justify-between min-h-screen px-6 md:px-16 bg-gradient-to-br from-white via-[#f8f9ff] to-[#e8fce6] overflow-hidden">
+    <section className="relative flex flex-col md:flex-row items-center justify-between min-h-screen px-6 md:px-16 bg-linear-to-br from-white via-[#f8f9ff] to-[#e8fce6] overflow-hidden">
       
       {/* --- LEFT CONTENT --- */}
       <div className="flex flex-col max-w-xl text-left z-10">
@@ -74,7 +74,7 @@ export default function HomeHero() {
         transition={{ delay: 0.4, duration: 0.9 }}
         className="relative mt-12 md:mt-0 w-full md:w-[480px] h-[580px] flex items-center justify-center"
       >
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#4AEA45]/10 via-white/30 to-transparent backdrop-blur-xl border border-white/20 rounded-3xl shadow-lg"></div>
+        <div className="absolute inset-0 bg-linear-to-tr from-[#4AEA45]/10 via-white/30 to-transparent backdrop-blur-xl border border-white/20 rounded-3xl shadow-lg"></div>
         <Image
           src="/hero-illustration.svg"
           alt="Hero Illustration"
