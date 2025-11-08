@@ -8,6 +8,7 @@ import WhyChooseUS from "@/components/Why";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import Intro from "@/components/LoadHandling/Intro"; 
+
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
 
@@ -16,19 +17,44 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div className="w-full min-h-screen overflow-x-hidden">
       {showSplash ? (
-        <Intro key="splash" onComplete={handleSplashComplete} />
+        <div className="w-full h-screen flex items-center justify-center">
+          <Intro key="splash" onComplete={handleSplashComplete} />
+        </div>
       ) : (
-        <>
-          <Navbar />
-          <HomeHero />
-          <Trusted />
-          <WhyChooseUS />
-          <About />
-          <Services />
-        </>
+        <main className="w-full">
+          {/* Navbar */}
+          <header className="w-full sticky top-0 z-50">
+            <Navbar />
+          </header>
+
+          {/* Hero Section */}
+          <section className="w-full">
+            <HomeHero />
+          </section>
+
+          {/* Trusted / Clients Section */}
+          <section className="w-full">
+            <Trusted />
+          </section>
+
+          {/* Why Choose Us Section */}
+          <section className="w-full">
+            <WhyChooseUS />
+          </section>
+
+          {/* About Section */}
+          <section className="w-full">
+            <About />
+          </section>
+
+          {/* Services Section */}
+          <section className="w-full">
+            <Services />
+          </section>
+        </main>
       )}
-    </>
+    </div>
   );
 }
